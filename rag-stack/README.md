@@ -52,12 +52,28 @@ uv run python rag-stack/03_answer_generation.py
 
 Enter your query when prompted. The system will retrieve relevant documents and generate an answer using Google's Gemini.
 
+### History-Aware Generation
+
+Interactive chat with conversation context that maintains history across multiple queries:
+
+```bash
+uv run python rag-stack/04_history_aware_generation.py
+```
+
+This will:
+- Start an interactive chat session
+- Maintain conversation history for context
+- Rewrite follow-up questions to be standalone for better retrieval
+- Generate answers based on retrieved documents and conversation context
+- Type 'quit' to exit
+
 ## Project Structure
 
 - `docs/` - Source documents (.txt files)
 - `01_ingestion_pipeline.py` - Document ingestion and embedding
 - `02_retrieval_pipeline.py` - Query retrieval
 - `03_answer_generation.py` - Answer generation using LLM
+- `04_history_aware_generation.py` - Chat interface with conversation history
 - `db/chroma_db/` - Vector database (ignored by git)
 
 ## Dependencies
