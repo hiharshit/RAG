@@ -42,11 +42,22 @@ uv run python rag-stack/02_retrieval_pipeline.py
 
 Enter your query when prompted. The system will return the most relevant document chunks.
 
+### Answer Generation
+
+Generate answers based on retrieved documents using a language model:
+
+```bash
+uv run python rag-stack/03_answer_generation.py
+```
+
+Enter your query when prompted. The system will retrieve relevant documents and generate an answer using Google's Gemini.
+
 ## Project Structure
 
 - `docs/` - Source documents (.txt files)
 - `01_ingestion_pipeline.py` - Document ingestion and embedding
 - `02_retrieval_pipeline.py` - Query retrieval
+- `03_answer_generation.py` - Answer generation using LLM
 - `db/chroma_db/` - Vector database (ignored by git)
 
 ## Dependencies
