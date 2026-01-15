@@ -67,6 +67,20 @@ This will:
 - Generate answers based on retrieved documents and conversation context
 - Type 'quit' to exit
 
+### Semantic Chunking (Example)
+
+Demonstrates semantic chunking using embeddings to split text based on meaning rather than fixed sizes:
+
+```bash
+uv run python rag-stack/05_semantic_chunking.py
+```
+
+This will:
+- Use LangChain's SemanticChunker with Google embeddings
+- Split sample text into semantically coherent chunks
+- Display the resulting chunks with character counts
+- Useful for improving retrieval quality by keeping related information together
+
 ## Project Structure
 
 - `docs/` - Source documents (.txt files)
@@ -74,6 +88,7 @@ This will:
 - `02_retrieval_pipeline.py` - Query retrieval
 - `03_answer_generation.py` - Answer generation using LLM
 - `04_history_aware_generation.py` - Chat interface with conversation history
+- `05_semantic_chunking.py` - Semantic chunking example
 - `db/chroma_db/` - Vector database (ignored by git)
 
 ## Dependencies
