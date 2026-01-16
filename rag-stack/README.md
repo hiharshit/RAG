@@ -81,6 +81,21 @@ This will:
 - Display the resulting chunks with character counts
 - Useful for improving retrieval quality by keeping related information together
 
+### Agentic Chunking (Example)
+
+Demonstrates AI-powered chunking where an LLM intelligently splits text based on content:
+
+```bash
+uv run python rag-stack/06_agentic_chunking.py
+```
+
+This will:
+- Use an LLM to analyze and split text at logical boundaries
+- Generate chunks around 200 characters based on topic changes
+- Use a custom delimiter (`<<<SPLIT>>>`) to mark split points
+- Display the resulting chunks with character counts
+- Shows how AI can understand context for better chunking decisions
+
 ## Project Structure
 
 - `docs/` - Source documents (.txt files)
@@ -89,6 +104,7 @@ This will:
 - `03_answer_generation.py` - Answer generation using LLM
 - `04_history_aware_generation.py` - Chat interface with conversation history
 - `05_semantic_chunking.py` - Semantic chunking example
+- `06_agentic_chunking.py` - AI-powered chunking example
 - `db/chroma_db/` - Vector database (ignored by git)
 
 ## Dependencies
