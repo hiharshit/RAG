@@ -130,6 +130,27 @@ Install with:
 - **macOS:** `brew install poppler tesseract libmagic`
 - **Windows:** Download from respective project websites (see notebook for links)
 
+### Retrieval Methods (Example)
+
+Demonstrates different retrieval strategies from the vector database:
+
+```bash
+uv run python rag-stack/08_retrieval_methods.py
+```
+
+This will:
+
+- Show basic similarity search (top k most similar documents)
+- Demonstrate similarity with score threshold (optional, uncomment to use)
+- Show Maximum Marginal Relevance (MMR) for diverse results (optional, uncomment to use)
+- Compare how different retrieval methods affect the results
+
+**Retrieval methods included:**
+
+1. **Similarity Search** - Returns top k most similar documents
+2. **Similarity with Score Threshold** - Only returns documents above a certain similarity score
+3. **Maximum Marginal Relevance (MMR)** - Balances relevance and diversity to avoid redundant results
+
 ## Project Structure
 
 - `docs/` - Source documents (.txt and .pdf files)
@@ -140,6 +161,7 @@ Install with:
 - `05_semantic_chunking.py` - Semantic chunking example
 - `06_agentic_chunking.py` - AI-powered chunking example
 - `07_multi_modal_rag.ipynb` - Multi-modal RAG with text, images, and tables
+- `08_retrieval_methods.py` - Different retrieval strategies comparison
 - `db/chroma_db/` - Vector database (ignored by git)
 
 ## Dependencies
