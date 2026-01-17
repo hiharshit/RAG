@@ -5,11 +5,13 @@ A Retrieval-Augmented Generation (RAG) pipeline using LangChain, ChromaDB, and G
 ## Setup
 
 1. Install dependencies with UV:
+
 ```bash
 uv sync
 ```
 
 2. Create a `.env` file in the root directory and add your Google API key:
+
 ```
 GOOGLE_API_KEY=your_api_key_here
 ```
@@ -27,6 +29,7 @@ uv run python rag-stack/01_ingestion_pipeline.py
 ```
 
 This will:
+
 - Load all `.txt` files from `docs/`
 - Split documents into chunks
 - Generate embeddings using Google's Gemini
@@ -61,6 +64,7 @@ uv run python rag-stack/04_history_aware_generation.py
 ```
 
 This will:
+
 - Start an interactive chat session
 - Maintain conversation history for context
 - Rewrite follow-up questions to be standalone for better retrieval
@@ -76,6 +80,7 @@ uv run python rag-stack/05_semantic_chunking.py
 ```
 
 This will:
+
 - Use LangChain's SemanticChunker with Google embeddings
 - Split sample text into semantically coherent chunks
 - Display the resulting chunks with character counts
@@ -90,21 +95,51 @@ uv run python rag-stack/06_agentic_chunking.py
 ```
 
 This will:
+
 - Use an LLM to analyze and split text at logical boundaries
 - Generate chunks around 200 characters based on topic changes
 - Use a custom delimiter (`<<<SPLIT>>>`) to mark split points
 - Display the resulting chunks with character counts
 - Shows how AI can understand context for better chunking decisions
 
+### Multi-Modal RAG (Jupyter Notebook)
+
+Advanced RAG pipeline that handles documents with text, images, and tables:
+
+```bash
+jupyter notebook rag-stack/07_multi_modal_rag.ipynb
+```
+
+This notebook demonstrates:
+
+- PDF partitioning using unstructured library (extracts text, tables, and images)
+- Semantic chunking based on document structure
+- AI-powered summarization for mixed content (text + tables + images)
+- Vector store creation with ChromaDB
+- Multi-modal query processing that considers all content types
+
+**Note:** Requires system dependencies for PDF processing:
+
+- Poppler (for PDF parsing)
+- Tesseract (for OCR on images)
+- libmagic (for file type detection)
+
+Install with:
+
+- **Linux:** `apt-get install poppler-utils tesseract-ocr libmagic-dev`
+- **macOS:** `brew install poppler tesseract libmagic`
+- **Windows:** Download from respective project websites (see notebook for links)
+
 ## Project Structure
 
-- `docs/` - Source documents (.txt files)
+- `docs/` - Source documents (.txt and .pdf files)
 - `01_ingestion_pipeline.py` - Document ingestion and embedding
 - `02_retrieval_pipeline.py` - Query retrieval
 - `03_answer_generation.py` - Answer generation using LLM
 - `04_history_aware_generation.py` - Chat interface with conversation history
 - `05_semantic_chunking.py` - Semantic chunking example
 - `06_agentic_chunking.py` - AI-powered chunking example
+- `07_multi_modal_rag.ipynb` - Multi-modal RAG with text, images, and tables
 - `db/chroma_db/` - Vector database (ignored by git)
 
 ## Dependencies
