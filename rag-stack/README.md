@@ -172,6 +172,36 @@ This will:
 - Helps find relevant documents that might not match the original query exactly
 - Can be combined with RRF for better result ranking
 
+### Reciprocal Rank Fusion (Example)
+
+Demonstrates Reciprocal Rank Fusion (RRF) to combine and rank results from multiple query retrievals:
+
+```bash
+uv run python rag-stack/10_reciprocal_rank_fusion.py
+```
+
+This will:
+
+- Generate multiple query variations using an LLM
+- Retrieve documents for each query variation
+- Apply RRF algorithm to fuse and rank all results together
+- Display final ranking with RRF scores
+- Show detailed scoring calculation with verbose output
+
+**How RRF works:**
+
+- Scores documents based on their position across multiple retrieval results
+- Formula: `score = Σ 1/(k + position)` where k is typically 60
+- Documents appearing in multiple queries get boosted scores
+- Higher positions contribute more to the final score
+- Provides a balanced fusion without depending on similarity scores
+
+**Benefits:**
+
+- Combines results from multiple retrieval strategies intelligently
+- Doesn't require similarity scores to be on the same scale
+- Proven effective in many retrieval and ranking tasks
+
 ## Project Structure
 
 - `docs/` - Source documents (.txt and .pdf files)
@@ -184,6 +214,7 @@ This will:
 - `07_multi_modal_rag.ipynb` - Multi-modal RAG with text, images, and tables
 - `08_retrieval_methods.py` - Different retrieval strategies comparison
 - `09_multi_query_retrieval.py` - Multi-query retrieval with LLM-generated variations
+- `10_reciprocal_rank_fusion.py` - RRF for combining multiple retrieval results
 - `db/chroma_db/` - Vector database (ignored by git)
 
 ## Dependencies
