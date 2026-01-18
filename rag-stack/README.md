@@ -151,6 +151,27 @@ This will:
 2. **Similarity with Score Threshold** - Only returns documents above a certain similarity score
 3. **Maximum Marginal Relevance (MMR)** - Balances relevance and diversity to avoid redundant results
 
+### Multi-Query Retrieval (Example)
+
+Demonstrates multi-query retrieval where an LLM generates multiple variations of a query to improve retrieval quality:
+
+```bash
+uv run python rag-stack/09_multi_query_retrieval.py
+```
+
+This will:
+
+- Use an LLM to generate 3 different variations of the original query
+- Retrieve documents for each query variation
+- Store all results for potential Reciprocal Rank Fusion (RRF)
+- Display results from each query variation side by side
+
+**Benefits:**
+
+- Improves retrieval by approaching the same question from different angles
+- Helps find relevant documents that might not match the original query exactly
+- Can be combined with RRF for better result ranking
+
 ## Project Structure
 
 - `docs/` - Source documents (.txt and .pdf files)
@@ -162,6 +183,7 @@ This will:
 - `06_agentic_chunking.py` - AI-powered chunking example
 - `07_multi_modal_rag.ipynb` - Multi-modal RAG with text, images, and tables
 - `08_retrieval_methods.py` - Different retrieval strategies comparison
+- `09_multi_query_retrieval.py` - Multi-query retrieval with LLM-generated variations
 - `db/chroma_db/` - Vector database (ignored by git)
 
 ## Dependencies
