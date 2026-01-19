@@ -202,6 +202,34 @@ This will:
 - Doesn't require similarity scores to be on the same scale
 - Proven effective in many retrieval and ranking tasks
 
+### Hybrid Search (Jupyter Notebook)
+
+Demonstrates hybrid search combining semantic (vector) and keyword (BM25) retrieval methods:
+
+```bash
+jupyter notebook rag-stack/11_hybrid_search.ipynb
+```
+
+This notebook demonstrates:
+
+- Vector retriever for semantic search (understands meaning and concepts)
+- BM25 retriever for keyword search (finds exact term matches)
+- Ensemble retriever to combine both approaches with weighted fusion
+- Example queries showing how hybrid search outperforms either method alone
+
+**Benefits of hybrid search:**
+
+- Combines semantic understanding with exact keyword matching
+- Handles queries with mixed semantic and specific terms better
+- Weights can be adjusted (e.g., 0.7 vector + 0.3 keyword)
+- Often provides more accurate results than either approach alone
+
+**Note:** Requires `langchain-classic` and `rank_bm25` packages if not already installed:
+
+```bash
+uv add langchain-classic rank_bm25
+```
+
 ## Project Structure
 
 - `docs/` - Source documents (.txt and .pdf files)
@@ -215,6 +243,7 @@ This will:
 - `08_retrieval_methods.py` - Different retrieval strategies comparison
 - `09_multi_query_retrieval.py` - Multi-query retrieval with LLM-generated variations
 - `10_reciprocal_rank_fusion.py` - RRF for combining multiple retrieval results
+- `11_hybrid_search.ipynb` - Hybrid search combining semantic and keyword retrieval
 - `db/chroma_db/` - Vector database (ignored by git)
 
 ## Dependencies
