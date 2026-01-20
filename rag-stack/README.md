@@ -230,6 +230,47 @@ This notebook demonstrates:
 uv add langchain-classic rank_bm25
 ```
 
+### Reranker (Jupyter Notebook)
+
+Demonstrates using Cohere's Rerank model to improve retrieval results by reordering documents:
+
+```bash
+jupyter notebook rag-stack/12_reranker.ipynb
+```
+
+This notebook demonstrates:
+
+- Hybrid search (vector + BM25) to retrieve initial candidate documents
+- Cohere Rerank model to intelligently reorder results based on query relevance
+- Comparison of results before and after reranking
+- How reranking moves the most contextually relevant chunks to the top
+
+**How reranking works:**
+
+1. Retrieve more documents than needed from hybrid search (e.g., top 25)
+2. Pass retrieved documents and query to the reranker
+3. Reranker scores each document based on its relevance to the query
+4. Returns top N documents with improved ordering
+
+**Benefits:**
+
+- Significantly improves result quality and relevance
+- Handles noisy retrieval results effectively
+- Specialized models outperform generic similarity scoring
+- Critical for production RAG systems
+
+**Note:** Requires `langchain-cohere` package and a Cohere API key:
+
+```bash
+uv add langchain-cohere
+```
+
+Add to `.env`:
+
+```
+COHERE_API_KEY=your_cohere_api_key_here
+```
+
 ## Project Structure
 
 - `docs/` - Source documents (.txt and .pdf files)
@@ -244,6 +285,7 @@ uv add langchain-classic rank_bm25
 - `09_multi_query_retrieval.py` - Multi-query retrieval with LLM-generated variations
 - `10_reciprocal_rank_fusion.py` - RRF for combining multiple retrieval results
 - `11_hybrid_search.ipynb` - Hybrid search combining semantic and keyword retrieval
+- `12_reranker.ipynb` - Cohere reranker to improve retrieval relevance
 - `db/chroma_db/` - Vector database (ignored by git)
 
 ## Dependencies
