@@ -25,7 +25,7 @@ GOOGLE_API_KEY=your_api_key_here
 Loads documents, splits them into chunks, and creates embeddings stored in ChromaDB:
 
 ```bash
-uv run python rag-stack/01_ingestion_pipeline.py
+uv run python rag-lab/01_ingestion_pipeline.py
 ```
 
 This will:
@@ -40,7 +40,7 @@ This will:
 Query the vector database for relevant documents:
 
 ```bash
-uv run python rag-stack/02_retrieval_pipeline.py
+uv run python rag-lab/02_retrieval_pipeline.py
 ```
 
 Enter your query when prompted. The system will return the most relevant document chunks.
@@ -50,7 +50,7 @@ Enter your query when prompted. The system will return the most relevant documen
 Generate answers based on retrieved documents using a language model:
 
 ```bash
-uv run python rag-stack/03_answer_generation.py
+uv run python rag-lab/03_answer_generation.py
 ```
 
 Enter your query when prompted. The system will retrieve relevant documents and generate an answer using Google's Gemini.
@@ -60,7 +60,7 @@ Enter your query when prompted. The system will retrieve relevant documents and 
 Interactive chat with conversation context that maintains history across multiple queries:
 
 ```bash
-uv run python rag-stack/04_history_aware_generation.py
+uv run python rag-lab/04_history_aware_generation.py
 ```
 
 This will:
@@ -76,7 +76,7 @@ This will:
 Demonstrates semantic chunking using embeddings to split text based on meaning rather than fixed sizes:
 
 ```bash
-uv run python rag-stack/05_semantic_chunking.py
+uv run python rag-lab/05_semantic_chunking.py
 ```
 
 This will:
@@ -91,7 +91,7 @@ This will:
 Demonstrates AI-powered chunking where an LLM intelligently splits text based on content:
 
 ```bash
-uv run python rag-stack/06_agentic_chunking.py
+uv run python rag-lab/06_agentic_chunking.py
 ```
 
 This will:
@@ -107,7 +107,7 @@ This will:
 Advanced RAG pipeline that handles documents with text, images, and tables:
 
 ```bash
-jupyter notebook rag-stack/07_multi_modal_rag.ipynb
+jupyter notebook rag-lab/07_multi_modal_rag.ipynb
 ```
 
 This notebook demonstrates:
@@ -135,7 +135,7 @@ Install with:
 Demonstrates different retrieval strategies from the vector database:
 
 ```bash
-uv run python rag-stack/08_retrieval_methods.py
+uv run python rag-lab/08_retrieval_methods.py
 ```
 
 This will:
@@ -156,7 +156,7 @@ This will:
 Demonstrates multi-query retrieval where an LLM generates multiple variations of a query to improve retrieval quality:
 
 ```bash
-uv run python rag-stack/09_multi_query_retrieval.py
+uv run python rag-lab/09_multi_query_retrieval.py
 ```
 
 This will:
@@ -177,7 +177,7 @@ This will:
 Demonstrates Reciprocal Rank Fusion (RRF) to combine and rank results from multiple query retrievals:
 
 ```bash
-uv run python rag-stack/10_reciprocal_rank_fusion.py
+uv run python rag-lab/10_reciprocal_rank_fusion.py
 ```
 
 This will:
@@ -207,7 +207,7 @@ This will:
 Demonstrates hybrid search combining semantic (vector) and keyword (BM25) retrieval methods:
 
 ```bash
-jupyter notebook rag-stack/11_hybrid_search.ipynb
+jupyter notebook rag-lab/11_hybrid_search.ipynb
 ```
 
 This notebook demonstrates:
@@ -235,7 +235,7 @@ uv add langchain-classic rank_bm25
 Demonstrates using Cohere's Rerank model to improve retrieval results by reordering documents:
 
 ```bash
-jupyter notebook rag-stack/12_reranker.ipynb
+jupyter notebook rag-lab/12_reranker.ipynb
 ```
 
 This notebook demonstrates:
